@@ -1,10 +1,13 @@
 package com.example.sendersms
 
+import android.app.PendingIntent
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.telephony.SmsManager
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
 
 class MainActivity : AppCompatActivity() {
 
@@ -19,12 +22,16 @@ class MainActivity : AppCompatActivity() {
         this.message = findViewById(R.id.editText2);
         this.send  = findViewById(R.id.button1)
         print("start project")
-        send.hasOnClickListeners{
+
+        send.setOnClickListener({
             // in java  Intent intent=new Intent(getApplicationContext(),MainActivity.class);
             val intent = Intent(applicationContext,MainActivity::class.java);
-            print("hello world")
-        }
-
+            val pending = PendingIntent.getActivity(applicationContext,0,intent,0)
+            val smsSender = SmsManager.getDefault()
+            smsSender.sendTextMessage(phone.text.toString(),null,
+                message.text.toString(),pending,null)
+            Toast.makeText(applicationContext,"Sms muvofaqiyatli jo`natildi",Toast.LENGTH_LONG).show()
+        })
 
 
 
@@ -33,10 +40,7 @@ class MainActivity : AppCompatActivity() {
     }
 }
 
-private fun Button.hasOnClickListeners(function: () -> Unit) {
-        TODO("Not yet implemented")
-    print("hello world")
-}
+
 
 
 
