@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:androclass="http://schemas.android.com/apk/res/android"
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".MainActivity"
     androclass:layout_height="match_parent"
@@ -41,8 +42,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/editText2"
-        android:layout_alignBottom="@+id/editText2"
         android:layout_alignLeft="@+id/textView1"
+        android:layout_alignBottom="@+id/editText2"
+        androclass:layout_marginLeft="5dp"
+        androclass:layout_marginBottom="13dp"
         android:text="Message:"
         tools:ignore="MissingConstraints" />
 
@@ -56,5 +59,19 @@
         android:layout_marginTop="48dp"
         android:text="Send SMS"
         tools:ignore="MissingConstraints" />
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        androclass:layout_alignParentStart="true"
+        androclass:layout_alignParentLeft="true"
+        androclass:layout_marginStart="16dp"
+        androclass:layout_marginLeft="16dp"
+        androclass:layout_marginEnd="23dp"
+        androclass:layout_marginRight="23dp"
+        androclass:layout_toStartOf="@+id/textView1"
+        androclass:layout_toLeftOf="@+id/textView1"
+        app:srcCompat="@android:drawable/stat_sys_phone_call" />
 
 </RelativeLayout>
