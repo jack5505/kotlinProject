@@ -1,7 +1,10 @@
 package com.example.sendersms
 
+import android.Manifest
 import android.app.PendingIntent
 import android.content.Intent
+import android.content.pm.PackageManager
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.telephony.SmsManager
@@ -22,6 +25,22 @@ class MainActivity : AppCompatActivity() {
         this.message = findViewById(R.id.editText2);
         this.send  = findViewById(R.id.button1)
         print("start project")
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                if(checkSelfPermission(Manifest.permission.SEND_SMS) == PackageManager.PERMISSION_DENIED){
+                    println("this permission not working")
+                    var  permissions = Manifest.permission.SEND_SMS
+
+                    var permissionss = arrayOf(Manifest.permission.SEND_SMS)
+
+                    requestPermissions(permissionss,1)
+
+                }
+            } else {
+                TODO("VERSION.SDK_INT < M")
+            }
+
+
 
         send.setOnClickListener({
             // in java  Intent intent=new Intent(getApplicationContext(),MainActivity.class);

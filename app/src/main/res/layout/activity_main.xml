@@ -33,7 +33,7 @@
         android:layout_alignBaseline="@+id/editText1"
         android:layout_alignBottom="@+id/editText1"
         android:layout_toLeftOf="@+id/editText1"
-        android:text="Mobile No:"
+        android:text="Mobile NoTest:"
         tools:ignore="MissingConstraints" />
 
     <TextView
